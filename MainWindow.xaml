@@ -8,7 +8,7 @@
         Title="Admin Login" Height="350" Width="525">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Admin Login" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
+            <TextBlock Text="Stock Management" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
 
             <Label Content="Username:"/>
             <TextBox x:Name="UsernameTextBox" Width="200" Margin="0 0 0 10"/>
