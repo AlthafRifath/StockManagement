@@ -8,7 +8,6 @@ namespace StockManagement
     public partial class MainWindow : Window
     {
         private MySqlConnection connection;
-        // private string connectionString = "Server=localhost;Database=stockmanagementdb;User ID=admin;Password=1100";
         private string connectionString = "server=localhost;user=root;database=stockmanagementdb;port=3306;password=1100";
 
         public MainWindow()
@@ -28,16 +27,16 @@ namespace StockManagement
             }
             else
             {
-                // Create a parameterized query to avoid SQL injection
+                // A parameterized query to prevent SQL injection
                 string query = "SELECT * FROM Users WHERE Username = @username AND Password = @password";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                // Add parameters to the query
+                // Parameters to the query
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
 
                 try
-                {
+                { 
                     connection.Open();
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
