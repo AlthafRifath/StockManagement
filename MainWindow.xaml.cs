@@ -5,14 +5,14 @@ using MySql.Data.MySqlClient;
 
 namespace StockManagement
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window // partial class to separate the designer code from the logic code 
     {
         private MySqlConnection connection;
         private string connectionString = "server=localhost;user=root;database=stockmanagementdb;port=3306;password=1100";
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); // initialize the components of the window (designer code) 
             connection = new MySqlConnection(connectionString);
         }
 
