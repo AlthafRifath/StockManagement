@@ -158,6 +158,16 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Models\MainProgram.cs" />
+        <Compile Include="Services\DatabaseServices.cs" />
+        <Compile Include="ViewModels\AdminViewModel.cs">
+          <DependentUpon>LoginView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="ViewModels\MainViewModel.cs">
+          <DependentUpon>MainView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="ViewModels\StockItemViewModel.cs" />
+        <Compile Include="ViewModels\TransactionLogViewModel.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -170,8 +180,15 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Views\AdminView.xaml" />
+        <Page Include="Views\MainView.xaml" />
+        <Page Include="Views\StockItemView.xaml" />
+        <Page Include="Views\TransactionLogView.xaml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Models\Admin.cs" />
+        <Compile Include="Models\StockItem.cs" />
+        <Compile Include="Models\TransactionLog.cs" />
         <Compile Include="Properties\AssemblyInfo.cs">
             <SubType>Code</SubType>
         </Compile>
@@ -188,11 +205,6 @@
     <ItemGroup>
         <None Include="App.config" />
         <None Include="packages.config" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Models\" />
-      <Folder Include="ViewModels\" />
-      <Folder Include="Views\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
