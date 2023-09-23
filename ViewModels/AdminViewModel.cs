@@ -45,7 +45,9 @@ namespace StockManagement.Views
 
                     if (dataTable.Rows.Count == 1)
                     {
-                        MessageBox.Show("Login successful!");
+                        MainView mainView = new MainView();
+                        mainView.Show();
+                        this.Close();
                     }
                     else
                     {

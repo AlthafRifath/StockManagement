@@ -20,5 +20,12 @@ namespace StockManagement.Models
         {
             return quantity;
         }
+        
+        public StockItem(string stockCode, string name, int quantity)
+        {
+            this.stockCode = stockCode;
+            this.name = name;
+            this.quantity = quantity;
+        }
     }
 }

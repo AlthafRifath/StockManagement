@@ -40,5 +40,15 @@ namespace StockManagement.Models
         {
             return newQuantity;
         }
+        
+        public TransactionLog(DateTime date, string transactionType, string stockCode, string name, int quantity, int newQuantity)
+        {
+            this.date = date;
+            this.transactionType = transactionType;
+            this.stockCode = stockCode;
+            this.name = name;
+            this.quantity = quantity;
+            this.newQuantity = newQuantity;
+        }
     }
 }

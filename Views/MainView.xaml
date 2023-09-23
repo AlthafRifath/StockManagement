@@ -5,8 +5,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:StockManagement.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="Main Dashboard" Height="450" Width="800">
+
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Stock Management Dashboard" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
+
+            <Button Command="{Binding AddItemCommand}" Content="Add Item" Width="200" Margin="0 10 0 0"/>
+            <Button Command="{Binding AddQuantityCommand}" Content="Add Quantity" Width="200" Margin="0 10 0 0"/>
+            <Button Command="{Binding RemoveQuantityCommand}" Content="Remove Quantity" Width="200" Margin="0 10 0 0"/>
+            <Button Command="{Binding DeleteItemCommand}" Content="Delete Item" Width="200" Margin="0 10 0 0"/>
+            <Button Command="{Binding ViewTransactionLogCommand}" Content="View Transaction Log" Width="200" Margin="0 10 0 0"/>
+            <Button Command="{Binding ViewStockLevelsCommand}" Content="View Stock Levels" Width="200" Margin="0 10 0 0"/>
+        </StackPanel>
     </Grid>
 </Window>
