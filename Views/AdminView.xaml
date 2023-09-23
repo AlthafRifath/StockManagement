@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Stock Management" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
+
+            <Label Content="Username:"/>
+            <TextBox x:Name="UsernameTextBox" Width="200" Margin="0 0 0 10"/>
+
+            <Label Content="Password:"/>
+            <PasswordBox x:Name="PasswordBox" Width="200" Margin="0 0 0 10"/>
+
+            <Button Content="Login" Width="100" Click="LoginButton_Click"/>
+
+            <TextBlock x:Name="LoginResultText" Foreground="Red" Margin="0 10 0 0"/>
+        </StackPanel>
     </Grid>
 </Window>

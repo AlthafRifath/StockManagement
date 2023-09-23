@@ -158,8 +158,8 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Models\DatabaseServices.cs" />
         <Compile Include="Models\MainProgram.cs" />
-        <Compile Include="Services\DatabaseServices.cs" />
         <Compile Include="ViewModels\AdminViewModel.cs">
           <DependentUpon>LoginView.xaml</DependentUpon>
         </Compile>
@@ -186,7 +186,6 @@
         <Page Include="Views\TransactionLogView.xaml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Models\Admin.cs" />
         <Compile Include="Models\StockItem.cs" />
         <Compile Include="Models\TransactionLog.cs" />
         <Compile Include="Properties\AssemblyInfo.cs">
