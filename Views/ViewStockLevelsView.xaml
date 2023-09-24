@@ -1,25 +1,22 @@
-<Window x:Class="StockManagement.Views.TransactionLogView"
+<Window x:Class="StockManagement.Views.ViewStockLevelsView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:StockManagement.Views"
         mc:Ignorable="d"
-        Title="TransactionLogView" Height="450" Width="800">
+        Title="ViewStockLevelsView" Height="450" Width="800">
 
     <Grid>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBlock Text="Transaction Logs" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
+            <TextBlock Text="Current Stock Levels" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
 
-            <ListView ItemsSource="{Binding TransactionLogs}">
+            <ListView ItemsSource="{Binding StockLevels}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="100"/>
-                        <GridViewColumn Header="Transaction Type" DisplayMemberBinding="{Binding TransactionType}" Width="150"/>
                         <GridViewColumn Header="Stock Code" DisplayMemberBinding="{Binding StockCode}" Width="100"/>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
-                        <GridViewColumn Header="New Quantity" DisplayMemberBinding="{Binding NewQuantity}" Width="100"/>
+                        <GridViewColumn Header="Current Quantity" DisplayMemberBinding="{Binding Quantity}" Width="150"/>
                     </GridView>
                 </ListView.View>
             </ListView>

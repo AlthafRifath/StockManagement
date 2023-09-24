@@ -174,21 +174,30 @@
             <SubType>Designer</SubType>
         </ApplicationDefinition>
         <Compile Include="Models\DatabaseServices.cs" />
-        <Compile Include="Models\MainProgram.cs" />
         <Compile Include="ViewModels\AdminViewModel.cs">
           <DependentUpon>LoginView.xaml</DependentUpon>
         </Compile>
-        <Compile Include="ViewModels\MainViewModel.cs" />
-        <Compile Include="ViewModels\StockItemViewModel.cs" />
-        <Compile Include="ViewModels\TransactionLogViewModel.cs" />
+        <Compile Include="ViewModels\MainProgram.cs" />
+        <Compile Include="Views\AddQuantityView.xaml.cs">
+          <DependentUpon>AddQuantityView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\DeleteItemView.xaml.cs">
+          <DependentUpon>DeleteItemView.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Views\MainView.xaml.cs">
           <DependentUpon>MainView.xaml</DependentUpon>
         </Compile>
-        <Compile Include="Views\StockItemView.xaml.cs">
-          <DependentUpon>StockItemView.xaml</DependentUpon>
+        <Compile Include="Views\AddItemView.xaml.cs">
+          <DependentUpon>AddItemView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\RemoveQuantityView.xaml.cs">
+          <DependentUpon>RemoveQuantityView.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\TransactionLogView.xaml.cs">
           <DependentUpon>TransactionLogView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\ViewStockLevelsView.xaml.cs">
+          <DependentUpon>ViewStockLevelsView.xaml</DependentUpon>
         </Compile>
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
@@ -202,10 +211,14 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Views\AddQuantityView.xaml" />
         <Page Include="Views\AdminView.xaml" />
+        <Page Include="Views\DeleteItemView.xaml" />
         <Page Include="Views\MainView.xaml" />
-        <Page Include="Views\StockItemView.xaml" />
+        <Page Include="Views\AddItemView.xaml" />
+        <Page Include="Views\RemoveQuantityView.xaml" />
         <Page Include="Views\TransactionLogView.xaml" />
+        <Page Include="Views\ViewStockLevelsView.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\StockItem.cs" />

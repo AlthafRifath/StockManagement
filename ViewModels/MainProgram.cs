@@ -1,7 +1,9 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-namespace StockManagement.Models
+using StockManagement.Models;
+
+namespace StockManagement.ViewModels
 {
     public class MainProgram
     {
@@ -15,7 +17,8 @@ namespace StockManagement.Models
         
         public void AddItem(StockItem item)
         {
-            
+            StockItem stockItem = new StockItem("1234", "Test Item", 10);
+               
         }
         
         public void AddQuantity(string stockCode, int quantity)
