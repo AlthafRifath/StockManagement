@@ -13,7 +13,7 @@ namespace StockManagement.ViewModels
 
         public AddItemViewModel(MainProgram mainProgramInstance)
         {
-            StockItem = new StockItem("","",0);
+            StockItem = new StockItem("", "", 0);
             AddItemCommand = new RelayCommand(AddItem);
             mainProgram = mainProgramInstance;
         }
