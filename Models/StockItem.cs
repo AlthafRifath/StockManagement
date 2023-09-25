@@ -6,26 +6,29 @@ namespace StockManagement.Models
         private string name;
         private int quantity;
         
-        public string getStockCode()
+        public string StockCode
         {
-            return stockCode;
+            get { return stockCode; }
+            set { stockCode = value; }
         }
         
-        public string getName()
+        public string Name
         {
-            return name;
+            get { return name; }
+            set { name = value; }
         }
         
-        public int getQuantity()
+        public int Quantity
         {
-            return quantity;
+            get { return quantity; }
+            set { quantity = value; }
         }
         
         public StockItem(string stockCode, string name, int quantity)
         {
-            this.stockCode = stockCode;
-            this.name = name;
-            this.quantity = quantity;
+            StockCode = stockCode;
+            Name = name;
+            Quantity = quantity;
         }
     }
 }

@@ -23,13 +23,13 @@ namespace StockManagement.ViewModels
                 string query = "INSERT INTO stockitem (StockCode, Name, QuantityInStock) VALUES (@StockCode, @Name, @QuantityInStock)";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 
-                command.Parameters.AddWithValue("@StockCode", stockItem.getStockCode());
-                command.Parameters.AddWithValue("@Name", stockItem.getName());
-                command.Parameters.AddWithValue("@QuantityInStock", stockItem.getQuantity());
+                command.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
+                command.Parameters.AddWithValue("@Name", stockItem.Name);
+                command.Parameters.AddWithValue("@QuantityInStock", stockItem.Quantity);
                 
                 // command.ExecuteNonQuery();
                 
-                Console.WriteLine($"Preparing to insert StockCode: {stockItem.getStockCode()}, Name: {stockItem.getName()}, Quantity: {stockItem.getQuantity()}");
+                Console.WriteLine($"Preparing to insert StockCode: {stockItem.StockCode}, Name: {stockItem.Name}, Quantity: {stockItem.Quantity}");
                 
                 Console.WriteLine("Executing: " + command.CommandText);
                 int rowsAffected = command.ExecuteNonQuery();
