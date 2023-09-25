@@ -174,10 +174,12 @@
             <SubType>Designer</SubType>
         </ApplicationDefinition>
         <Compile Include="Models\DatabaseServices.cs" />
+        <Compile Include="ViewModels\AddItemViewModel.cs" />
         <Compile Include="ViewModels\AdminViewModel.cs">
           <DependentUpon>LoginView.xaml</DependentUpon>
         </Compile>
         <Compile Include="ViewModels\MainProgram.cs" />
+        <Compile Include="ViewModels\MainViewModel.cs" />
         <Compile Include="Views\AddQuantityView.xaml.cs">
           <DependentUpon>AddQuantityView.xaml</DependentUpon>
         </Compile>
