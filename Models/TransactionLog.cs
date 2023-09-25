@@ -11,44 +11,50 @@ namespace StockManagement.Models
         private int quantity;
         private int newQuantity;
         
-        public DateTime GetDate()
+        public DateTime Date
         {
-            return date;
+            get { return date; }
+            set { date = value; }
         }
         
-        public string GetTransactionType()
+        public string TransactionType
         {
-            return transactionType;
+            get { return transactionType; }
+            set { transactionType = value; }
         }
         
-        public string GetStockCode()
+        public string StockCode
         {
-            return stockCode;
+            get { return stockCode; }
+            set { stockCode = value; }
         }
         
-        public string GetName()
+        public string Name
         {
-            return name;
+            get { return name; }
+            set { name = value; }
         }
         
-        public int GetQuantity()
+        public int Quantity
         {
-            return quantity;
+            get { return quantity; }
+            set { quantity = value; }
         }
         
-        public int GetNewQuantity()
+        public int NewQuantity
         {
-            return newQuantity;
+            get { return newQuantity; }
+            set { newQuantity = value; }
         }
         
         public TransactionLog(DateTime date, string transactionType, string stockCode, string name, int quantity, int newQuantity)
         {
-            this.date = date;
-            this.transactionType = transactionType;
-            this.stockCode = stockCode;
-            this.name = name;
-            this.quantity = quantity;
-            this.newQuantity = newQuantity;
+            Date = date;
+            TransactionType = transactionType;
+            StockCode = stockCode;
+            Name = name;
+            Quantity = quantity;
+            NewQuantity = newQuantity;
         }
     }
 }
