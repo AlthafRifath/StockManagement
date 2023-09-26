@@ -7,24 +7,23 @@ using StockManagement.Models;
 
 namespace StockManagement.ViewModels
 {
-    public class AddItemViewModel : INotifyPropertyChanged
+    public class AddQuantityViewModel : INotifyPropertyChanged
     {
-        public StockItem StockItem {get; set;}
-        public ICommand AddItemCommand {get; set;}
-        
+        public TransactionLog TransactionLog { get; set; }
+        public ICommand AddQuantityCommand { get; set; }
         private MainProgram mainProgram;
-
-        public AddItemViewModel(MainProgram mainProgramInstance)
+        
+        public AddQuantityViewModel(MainProgram mainProgram)
         {
-            StockItem = new StockItem("", "", 0);
-            AddItemCommand = new RelayCommand(AddItem);
-            mainProgram = mainProgramInstance;
+            this.mainProgram = mainProgram;
+            TransactionLog = new TransactionLog(default, "", "", "", 0, 0);
+            AddQuantityCommand = new RelayCommand(AddQuantity);
         }
         
-        private void AddItem()
+        private void AddQuantity()
         {
-            bool wasSuccessful = mainProgram.AddItem(StockItem);
-            ResultMessage = wasSuccessful ? "Item added successfully!" : "Item could not be added!";
+            bool wasSuccessful = mainProgram.AddQuantity(TransactionLog);
+            ResultMessage = wasSuccessful ? "Quantity added successfully!" : "Quantity could not be added!";
         }
         
         private string resultMessage;
@@ -40,8 +39,7 @@ namespace StockManagement.ViewModels
                 }
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
         
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

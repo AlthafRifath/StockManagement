@@ -35,7 +35,7 @@ namespace StockManagement.ViewModels
         
         private void OpenAddQuantityView()
         {
-            AddQuantityView addQuantityView = new AddQuantityView();
+            AddQuantityView addQuantityView = new AddQuantityView(mainProgram);
             addQuantityView.Show();
         }
         

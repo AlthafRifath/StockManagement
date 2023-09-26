@@ -56,11 +56,6 @@ namespace StockManagement.Models
             Quantity = quantity;
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        
         public event PropertyChangedEventHandler PropertyChanged;
     }
     // {

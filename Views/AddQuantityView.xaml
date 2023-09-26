@@ -19,7 +19,7 @@
             
             <Button Command="{Binding AddQuantityCommand}" Content="Add Quantity" Width="100" Margin="0 10 0 0"/>
             
-            <TextBlock x:Name="Error" Foreground="Red" Margin="0 10 0 0"/>
+            <TextBlock Text="{Binding ResultMessage}" Foreground="LawnGreen" Margin="0 10 0 0"/>
         </StackPanel>
     </Grid>
 </Window>

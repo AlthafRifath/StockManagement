@@ -175,6 +175,7 @@
         </ApplicationDefinition>
         <Compile Include="Models\DatabaseServices.cs" />
         <Compile Include="ViewModels\AddItemViewModel.cs" />
+        <Compile Include="ViewModels\AddQuantityViewModel.cs" />
         <Compile Include="ViewModels\AdminViewModel.cs">
           <DependentUpon>LoginView.xaml</DependentUpon>
         </Compile>
