@@ -1,6 +1,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Windows;
 using StockManagement.Models;
 
 namespace StockManagement.ViewModels
@@ -19,7 +20,18 @@ namespace StockManagement.ViewModels
         {
             try
             {
+                string checkQuery = "SELECT COUNT(*) FROM stockitem WHERE StockCode = @StockCode";
+                MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
                 connection.Open();
+                object result = checkCommand.ExecuteScalar();
+                if (Convert.ToInt32(result) > 0)
+                {
+                    MessageBox.Show("Duplicate stock code found!");
+                    connection.Close();
+                    return false;
+                }
+                
                 string query = "INSERT INTO stockitem (StockCode, Name, QuantityInStock) VALUES (@StockCode, @Name, @QuantityInStock)";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 
@@ -27,13 +39,11 @@ namespace StockManagement.ViewModels
                 command.Parameters.AddWithValue("@Name", stockItem.Name);
                 command.Parameters.AddWithValue("@QuantityInStock", stockItem.Quantity);
                 
-                // command.ExecuteNonQuery();
+                int rowsAffected = command.ExecuteNonQuery();
                 
                 // Debugging
                 Console.WriteLine($"Preparing to insert StockCode: {stockItem.StockCode}, Name: {stockItem.Name}, Quantity: {stockItem.Quantity}");
-                
                 Console.WriteLine("Executing: " + command.CommandText);
-                int rowsAffected = command.ExecuteNonQuery();
                 Console.WriteLine($"{rowsAffected} rows affected");
                 
                 return rowsAffected > 0;

@@ -26,6 +26,11 @@ namespace StockManagement.ViewModels
             bool wasSuccessful = mainProgram.AddItem(StockItem);
             ResultMessage = wasSuccessful ? "Item added successfully!" : "Item could not be added!";
         }
+        
+        private bool CanAddItem()
+        {
+            return !string.IsNullOrEmpty(StockItem.StockCode) && !string.IsNullOrEmpty(StockItem.Name) && StockItem.Quantity > 0;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         
