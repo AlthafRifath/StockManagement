@@ -15,7 +15,7 @@ namespace StockManagement.ViewModels
             connection = new MySqlConnection(connectionString);
         }
         
-        public void AddItem(Models.StockItem stockItem)
+        public bool AddItem(Models.StockItem stockItem)
         {
             try
             {
@@ -29,16 +29,19 @@ namespace StockManagement.ViewModels
                 
                 // command.ExecuteNonQuery();
                 
+                // Debugging
                 Console.WriteLine($"Preparing to insert StockCode: {stockItem.StockCode}, Name: {stockItem.Name}, Quantity: {stockItem.Quantity}");
                 
                 Console.WriteLine("Executing: " + command.CommandText);
                 int rowsAffected = command.ExecuteNonQuery();
                 Console.WriteLine($"{rowsAffected} rows affected");
+                
+                return rowsAffected > 0;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: " + e.Message);
-                throw;
+                Console.WriteLine(e);
+                return false;
             }
             finally
             {
