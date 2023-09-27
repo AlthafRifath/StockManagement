@@ -12,10 +12,10 @@
             <TextBlock Text="Add Quantity to Stock Item" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
 
             <Label Content="Stock Code:"/>
-            <TextBox Text="{Binding StockItem.StockCode}" Width="200" Margin="0 0 0 10"/>
+            <TextBox Text="{Binding TransactionLog.StockCode, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0 0 0 10"/>
 
             <Label Content="Additional Quantity:"/>
-            <TextBox Text="{Binding StockItem.AdditionalQuantity}" Width="200" Margin="0 0 0 10"/>
+            <TextBox Text="{Binding TransactionLog.Quantity, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0 0 0 10"/>
             
             <Button Command="{Binding AddQuantityCommand}" Content="Add Quantity" Width="100" Margin="0 10 0 0"/>
             

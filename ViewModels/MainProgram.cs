@@ -75,8 +75,7 @@ namespace StockManagement.ViewModels
                     return false;
                 }
 
-                string query =
-                    "INSERT INTO transactionlogs (DateTime, StockCode, StockItemName, QuantityChange) VALUES (NOW(), @StockCode, @StockItemName, @QuantityChange)";
+                string query = "INSERT INTO transactionlogs (DateTime, StockCode, StockItemName, QuantityChange) VALUES (NOW(), @StockCode, @StockItemName, @QuantityChange)";
                 MySqlCommand command = new MySqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@StockCode", transactionLog.StockCode);
@@ -97,7 +96,7 @@ namespace StockManagement.ViewModels
                     updateCommand.Parameters.AddWithValue("@Quantity", transactionLog.Quantity);
                     updateCommand.Parameters.AddWithValue("@StockCode", transactionLog.StockCode);
                     int updateRowsAffected = updateCommand.ExecuteNonQuery();
-
+                
                     // Debugging
                     Console.WriteLine($"Preparing to update StockCode: {transactionLog.StockCode}, Quantity: {transactionLog.Quantity}");
                     Console.WriteLine("Executing: " + updateCommand.CommandText);
