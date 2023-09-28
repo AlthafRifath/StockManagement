@@ -32,21 +32,28 @@ namespace StockManagement.ViewModels
                     return false;
                 }
                 
-                string query = "INSERT INTO stockitem (StockCode, Name, QuantityInStock) VALUES (@StockCode, @Name, @QuantityInStock)";
-                MySqlCommand command = new MySqlCommand(query, connection);
+                string query1 = "INSERT INTO stockitem (StockCode, Name, QuantityInStock) VALUES (@StockCode, @Name, @QuantityInStock)";
+                MySqlCommand command1 = new MySqlCommand(query1, connection);
+                command1.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
+                command1.Parameters.AddWithValue("@Name", stockItem.Name);
+                command1.Parameters.AddWithValue("@QuantityInStock", stockItem.Quantity);
+                int rowsAffected1 = command1.ExecuteNonQuery();
                 
-                command.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
-                command.Parameters.AddWithValue("@Name", stockItem.Name);
-                command.Parameters.AddWithValue("@QuantityInStock", stockItem.Quantity);
-                
-                int rowsAffected = command.ExecuteNonQuery();
+                string query2 = "INSERT INTO transactionlogs (DateTime, StockCode, StockItemName, QuantityChange) VALUES (NOW(), @StockCode, @StockItemName, @QuantityChange)";
+                MySqlCommand command2 = new MySqlCommand(query2, connection);
+                command2.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
+                command2.Parameters.AddWithValue("@StockItemName", stockItem.Name);
+                command2.Parameters.AddWithValue("@QuantityChange", stockItem.Quantity);
+                int rowsAffected2 = command2.ExecuteNonQuery();
                 
                 // Debugging
                 Console.WriteLine($"Preparing to insert StockCode: {stockItem.StockCode}, Name: {stockItem.Name}, Quantity: {stockItem.Quantity}");
-                Console.WriteLine("Executing: " + command.CommandText);
-                Console.WriteLine($"{rowsAffected} rows affected");
+                Console.WriteLine("Executing: " + command1.CommandText);
+                Console.WriteLine($"{rowsAffected1} rows affected in stockitem table");
+                Console.WriteLine("Executing: " + command2.CommandText);
+                Console.WriteLine($"{rowsAffected2} rows affected in transactionlogs table");
                 
-                return rowsAffected > 0;
+                return rowsAffected1 > 0 && rowsAffected2 > 0;
             }
             catch (Exception e)
             {
