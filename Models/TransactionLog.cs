@@ -101,6 +101,8 @@ namespace StockManagement.Models
             Quantity = quantity;
             NewQuantity = newQuantity;
         }
+        
+        public TransactionLog() {}
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

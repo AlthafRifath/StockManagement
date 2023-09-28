@@ -183,6 +183,7 @@
         <Compile Include="ViewModels\MainProgram.cs" />
         <Compile Include="ViewModels\MainViewModel.cs" />
         <Compile Include="ViewModels\RemoveQuantityViewModel.cs" />
+        <Compile Include="ViewModels\TransactionLogViewModel.cs" />
         <Compile Include="Views\AddQuantityView.xaml.cs">
           <DependentUpon>AddQuantityView.xaml</DependentUpon>
         </Compile>

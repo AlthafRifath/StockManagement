@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using StockManagement.Models;
@@ -230,9 +231,41 @@ namespace StockManagement.ViewModels
             }
         }
         
-        public void ViewTransactionLog()
+        public List<TransactionLog> FetchTransactionLogs()
         {
-            
+            List<TransactionLog> transactionLogs = new List<TransactionLog>();
+            try
+            {
+                string query = "SELECT * FROM transactionlogs";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                connection.Open();
+                
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        TransactionLog log = new TransactionLog
+                        {
+                            Date = reader.GetDateTime("DateTime"),
+                            StockCode = reader.GetString("StockCode"),
+                            Name = reader.GetString("StockItemName"),
+                            Quantity = reader.GetInt32("QuantityChange"),
+                        };
+                        
+                        transactionLogs.Add(log);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return transactionLogs;
         }
         
         public void ViewStockLevels()

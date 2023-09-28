@@ -53,7 +53,12 @@ namespace StockManagement.ViewModels
         
         private void OpenViewTransactionLogView()
         {
-            
+            TransactionLogViewModel transactionLogViewModel = new TransactionLogViewModel(mainProgram);
+            TransactionLogView transactionLogView = new TransactionLogView(mainProgram)
+            {
+                DataContext = transactionLogViewModel
+            };
+            transactionLogView.Show();
         }
         private void OpenViewStockLevelsView()
         {

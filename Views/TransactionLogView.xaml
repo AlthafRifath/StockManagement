@@ -15,11 +15,9 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="100"/>
-                        <GridViewColumn Header="Transaction Type" DisplayMemberBinding="{Binding TransactionType}" Width="150"/>
                         <GridViewColumn Header="Stock Code" DisplayMemberBinding="{Binding StockCode}" Width="100"/>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                         <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
-                        <GridViewColumn Header="New Quantity" DisplayMemberBinding="{Binding NewQuantity}" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>
