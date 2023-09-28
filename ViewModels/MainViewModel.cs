@@ -41,7 +41,7 @@ namespace StockManagement.ViewModels
         
         private void OpenRemoveQuantityView()
         {
-            RemoveQuantityView removeQuantityView = new RemoveQuantityView();
+            RemoveQuantityView removeQuantityView = new RemoveQuantityView(mainProgram);
             removeQuantityView.Show();
         }
         
