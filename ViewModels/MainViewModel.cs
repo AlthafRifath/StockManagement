@@ -47,7 +47,7 @@ namespace StockManagement.ViewModels
         
         private void OpenDeleteItemView()
         {
-            DeleteItemView deleteItemView = new DeleteItemView();
+            DeleteItemView deleteItemView = new DeleteItemView(mainProgram);
             deleteItemView.Show();
         }
         

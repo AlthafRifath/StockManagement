@@ -179,6 +179,7 @@
         <Compile Include="ViewModels\AdminViewModel.cs">
           <DependentUpon>LoginView.xaml</DependentUpon>
         </Compile>
+        <Compile Include="ViewModels\DeleteItemViewModel.cs" />
         <Compile Include="ViewModels\MainProgram.cs" />
         <Compile Include="ViewModels\MainViewModel.cs" />
         <Compile Include="Views\AddQuantityView.xaml.cs">

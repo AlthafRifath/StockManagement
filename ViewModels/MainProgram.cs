@@ -126,9 +126,51 @@ namespace StockManagement.ViewModels
             
         }
         
-        public void DeleteItem(string stockCode)
+        public bool DeleteItem(Models.StockItem stockItem)
         {
-            
+            if (stockItem == null || string.IsNullOrEmpty(stockItem.StockCode))
+            {
+                Console.WriteLine("Stock item is null or stock code is null or empty!");
+                return false;
+            }
+            try
+            {
+                string checkQuery = "SELECT COUNT(*) FROM stockitem WHERE StockCode = @StockCode";
+                MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
+                connection.Open();
+                object result = checkCommand.ExecuteScalar();
+                if (Convert.ToInt32(result) == 0)
+                {
+                    MessageBox.Show("Stock code not found!");
+                    connection.Close();
+                    return false;
+                }
+
+                string deleteStockItemQuery = "DELETE FROM stockitem WHERE StockCode = @StockCode";
+                MySqlCommand deleteStockItemCommand = new MySqlCommand(deleteStockItemQuery, connection);
+                deleteStockItemCommand.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
+                deleteStockItemCommand.ExecuteNonQuery();
+
+                string deleteTransactionQuery = "DELETE FROM transactionlogs WHERE StockCode = @StockCode";
+                MySqlCommand deleteTransactionCommand = new MySqlCommand(deleteTransactionQuery, connection);
+                deleteTransactionCommand.Parameters.AddWithValue("@StockCode", stockItem.StockCode);
+                deleteTransactionCommand.ExecuteNonQuery();
+
+                // Debugging
+                Console.WriteLine($"Deleted stock item with StockCode: {stockItem.StockCode}");
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
         
         public void ViewTransactionLog()
