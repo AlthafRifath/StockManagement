@@ -12,14 +12,14 @@
             <TextBlock Text="Remove Quantity from Stock Item" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
 
             <Label Content="Stock Code:"/>
-            <TextBox Text="{Binding StockItem.StockCode}" Width="200" Margin="0 0 0 10"/>
+            <TextBox Text="{Binding StockItem.StockCode, Mode=TwoWay}" Width="200" Margin="0 0 0 10"/>
 
             <Label Content="Quantity to Remove:"/>
             <TextBox Text="{Binding QuantityToRemove}" Width="200" Margin="0 0 0 10"/>
 
             <Button Command="{Binding RemoveQuantityCommand}" Content="Remove Quantity" Width="100" Margin="0 10 0 0"/>
             
-            <TextBlock x:Name="Error" Foreground="Red" Margin="0 10 0 0"/>
+            <TextBlock Text="{Binding ResultMessage}" Foreground="LawnGreen" Margin="0 10 0 0"/>
         </StackPanel>
     </Grid>
 </Window>

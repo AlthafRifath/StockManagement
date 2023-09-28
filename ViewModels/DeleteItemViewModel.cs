@@ -1,12 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using StockManagement.Models;
 
 namespace StockManagement.ViewModels
 {
-    public class DeleteItemViewModel : INotifyPropertyChanging
+    public class DeleteItemViewModel : INotifyPropertyChanged
     {
         public StockItem StockItem { get; set; }
         public ICommand DeleteItemCommand { get; set; }
@@ -36,11 +38,12 @@ namespace StockManagement.ViewModels
                 if (resultMessage != value)
                 {
                     resultMessage = value;
-                    PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(nameof(ResultMessage)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ResultMessage)));
                 }
             }
         }
         
-        public event PropertyChangingEventHandler PropertyChanging;
+        public event PropertyChangedEventHandler PropertyChanged;
+        
     }
 }
