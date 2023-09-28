@@ -62,7 +62,11 @@ namespace StockManagement.ViewModels
         }
         private void OpenViewStockLevelsView()
         {
-            ViewStockLevelsView viewStockLevelsView = new ViewStockLevelsView();
+            ViewStockLevelsModel viewStockLevelsModel = new ViewStockLevelsModel(mainProgram);
+            ViewStockLevelsView viewStockLevelsView = new ViewStockLevelsView(mainProgram)
+            {
+                DataContext = viewStockLevelsModel
+            };
             viewStockLevelsView.Show();
         }
     }

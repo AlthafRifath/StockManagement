@@ -11,7 +11,7 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBlock Text="Current Stock Levels" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
 
-            <ListView ItemsSource="{Binding StockLevels}">
+            <ListView ItemsSource="{Binding StockItems}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Stock Code" DisplayMemberBinding="{Binding StockCode}" Width="100"/>

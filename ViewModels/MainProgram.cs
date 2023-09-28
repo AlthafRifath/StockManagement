@@ -268,9 +268,40 @@ namespace StockManagement.ViewModels
             return transactionLogs;
         }
         
-        public void ViewStockLevels()
+        public List<StockItem> FetchStockLevels()
         {
-            
+            List<StockItem> stockItems = new List<StockItem>();
+            try
+            {
+                string query = "SELECT * FROM stockitem";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                connection.Open();
+                
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        StockItem item = new StockItem
+                        {
+                            StockCode = reader.GetString("StockCode"),
+                            Name = reader.GetString("Name"),
+                            Quantity = reader.GetInt32("QuantityInStock"),
+                        };
+                        
+                        stockItems.Add(item);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return stockItems;
         }
     }
 }
