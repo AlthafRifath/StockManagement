@@ -125,15 +125,23 @@ namespace StockManagement.ViewModels
         {
             try
             {
-                string checkQuery = "SELECT COUNT(*) FROM stockitem WHERE StockCode = @StockCode";
-                MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
-                checkCommand.Parameters.AddWithValue("@StockCode", transactionLog.StockCode);
                 connection.Open();
-                object result = checkCommand.ExecuteScalar();
-                if (Convert.ToInt32(result) == 0)
+                string checkQuantityQuery = "SELECT QuantityInStock FROM stockitem WHERE StockCode = @StockCode";
+                MySqlCommand checkQuantityCommand = new MySqlCommand(checkQuantityQuery, connection);
+                checkQuantityCommand.Parameters.AddWithValue("@StockCode", transactionLog.StockCode);
+                object quantityResult = checkQuantityCommand.ExecuteScalar();
+
+                if (quantityResult == null)
                 {
                     MessageBox.Show("Stock code not found!");
                     connection.Close();
+                    return false;
+                }
+
+                int currentQuantity = Convert.ToInt32(quantityResult);
+                if (currentQuantity - transactionLog.Quantity < 0)
+                {
+                    MessageBox.Show("Cannot remove more than current quantity!");
                     return false;
                 }
                 
